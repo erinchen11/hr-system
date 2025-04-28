@@ -1,0 +1,767 @@
+{
+	"info": {
+		"_postman_id": "a1079d11-216c-48d2-8eda-37289fec681e",
+		"name": "hr-system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4616302"
+	},
+	"item": [
+		{
+			"name": "01-check-live",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/hr-system-api/v1/check-live",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hr-system-api",
+								"v1",
+								"check-live"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 18:40:38 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "113"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"message\": \"Server is alive and kicking! (Struct Method)\",\n    \"data\": {\n        \"timestamp\": \"2025-04-28T18:40:38Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "02-login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"hr@example.com\",\n    \"password\":\"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/hr-system-api/v1/login",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"hr-system-api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"hr@example.com\",\n    \"password\":\"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hr-system-api/v1/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hr-system-api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 18:41:35 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "492"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"message\": \"Login success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWNkYjIzZjctMDgzOS00NWNmLTgwNzgtNTdmMzllYTNjY2Y2IiwiZW1haWwiOiJockBleGFtcGxlLmNvbSIsInJvbGUiOjEsImlzcyI6ImhyLXN5c3RlbS1hcGkiLCJzdWIiOiI1Y2RiMjNmNy0wODM5LTQ1Y2YtODA3OC01N2YzOWVhM2NjZjYiLCJleHAiOjE3NDU5NTIwOTUsIm5iZiI6MTc0NTg2NTY5NSwiaWF0IjoxNzQ1ODY1Njk1fQ.MSZ1RSh0L9aBjbTO_cB47aSPbSbHZlEe4ApRUe7yBME\",\n        \"user\": {\n            \"email\": \"hr@example.com\",\n            \"first_name\": \"HR\",\n            \"last_name\": \"Manager\",\n            \"role\": 1\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "03-change-password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWNkYjIzZjctMDgzOS00NWNmLTgwNzgtNTdmMzllYTNjY2Y2IiwiZW1haWwiOiJockBleGFtcGxlLmNvbSIsInJvbGUiOjEsImlzcyI6ImhyLXN5c3RlbS1hcGkiLCJzdWIiOiI1Y2RiMjNmNy0wODM5LTQ1Y2YtODA3OC01N2YzOWVhM2NjZjYiLCJleHAiOjE3NDU5NTIwOTUsIm5iZiI6MTc0NTg2NTY5NSwiaWF0IjoxNzQ1ODY1Njk1fQ.MSZ1RSh0L9aBjbTO_cB47aSPbSbHZlEe4ApRUe7yBME",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"old_password\":\"12345678\",\n    \"new_password\":\"23456789\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/hr-system-api/v1/change-password",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"hr-system-api",
+						"v1",
+						"change-password"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWNkYjIzZjctMDgzOS00NWNmLTgwNzgtNTdmMzllYTNjY2Y2IiwiZW1haWwiOiJockBleGFtcGxlLmNvbSIsInJvbGUiOjEsImlzcyI6ImhyLXN5c3RlbS1hcGkiLCJzdWIiOiI1Y2RiMjNmNy0wODM5LTQ1Y2YtODA3OC01N2YzOWVhM2NjZjYiLCJleHAiOjE3NDU5NTIwOTUsIm5iZiI6MTc0NTg2NTY5NSwiaWF0IjoxNzQ1ODY1Njk1fQ.MSZ1RSh0L9aBjbTO_cB47aSPbSbHZlEe4ApRUe7yBME",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"old_password\":\"12345678\",\n    \"new_password\":\"23456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hr-system-api/v1/change-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hr-system-api",
+								"v1",
+								"change-password"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 18:46:08 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "67"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"message\": \"Password updated successfully.\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "04-get-job-grades",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/hr-system-api/v1/hr/job-grades",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"hr-system-api",
+						"v1",
+						"hr",
+						"job-grades"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer...",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/hr-system-api/v1/hr/job-grades",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hr-system-api",
+								"v1",
+								"hr",
+								"job-grades"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 18:54:59 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "908"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"code\": \"D1\",\n            \"name\": \"Director\",\n            \"description\": \"Senior leader.\",\n            \"min_salary\": \"150000\",\n            \"max_salary\": \"250000\"\n        },\n        {\n            \"code\": \"IC0\",\n            \"name\": \"Intern/Contractor\",\n            \"description\": \"Non-permanent or entry-level role.\",\n            \"min_salary\": \"0\",\n            \"max_salary\": \"0\"\n        },\n        {\n            \"code\": \"M1\",\n            \"name\": \"Manager\",\n            \"description\": \"First-level manager.\",\n            \"min_salary\": \"90000\",\n            \"max_salary\": \"140000\"\n        },\n        {\n            \"code\": \"M2\",\n            \"name\": \"Senior Manager\",\n            \"description\": \"Experienced manager.\",\n            \"min_salary\": \"110000\",\n            \"max_salary\": \"170000\"\n        },\n        {\n            \"code\": \"P1\",\n            \"name\": \"Associate Engineer\",\n            \"description\": \"Entry-level professional contributor.\",\n            \"min_salary\": \"50000\",\n            \"max_salary\": \"75000\"\n        },\n        {\n            \"code\": \"P2\",\n            \"name\": \"Engineer\",\n            \"description\": \"Intermediate professional contributor.\",\n            \"min_salary\": \"65000\",\n            \"max_salary\": \"90000\"\n        },\n        {\n            \"code\": \"P3\",\n            \"name\": \"Senior Engineer\",\n            \"description\": \"Experienced professional contributor.\",\n            \"min_salary\": \"80000\",\n            \"max_salary\": \"120000\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "05-create-account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"first_name\": \"Ajak\",          // 必填 (NOT NULL) - 使用者名字\n  \"last_name\": \"Doe\",             // 必填 (NOT NULL) - 使用者姓氏\n  \"email\": \"ajak.doe@example.com\",// 必填 (NOT NULL) - Email 格式\n\n  \"role\": 2,                      // 選填 (NULLABLE)，不填預設為 2 (Employee)；1=HR, 2=Employee\n  \"job_grade_code\": \"P1\",         // 選填 (NULLABLE) - 職等代碼，例如 \"P1\", \"M1\"，後端用來查職等\n  \"position_title\": \"Engineer\",   // 選填 (NULLABLE) - 職位名稱\n  \"salary\": \"50000.00\",           // 選填 (NULLABLE) - 月薪（必須是數字字串）\n  \"hire_date\": \"2025-05-01\"       // 選填 (NULLABLE) - 入職日，格式 yyyy-MM-dd，不填預設今天\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/hr-system-api/v1/account/create",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"hr-system-api",
+						"v1",
+						"account",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer...",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Ajak\",          // 必填 (NOT NULL) - 使用者名字\n  \"last_name\": \"Doe\",             // 必填 (NOT NULL) - 使用者姓氏\n  \"email\": \"ajak.d2@example.com\",// 必填 (NOT NULL) - Email 格式\n\n  \"role\": 2,                      // 選填 (NULLABLE)，不填預設為 2 (Employee)；1=HR, 2=Employee\n  \"job_grade_code\": \"P1\",         // 選填 (NULLABLE) - 職等代碼，例如 \"P1\", \"M1\"，後端用來查職等\n  \"position_title\": \"Engineer\",   // 選填 (NULLABLE) - 職位名稱\n  \"salary\": \"50000.00\",           // 選填 (NULLABLE) - 月薪（必須是數字字串）\n  \"hire_date\": \"2025-05-01\"       // 選填 (NULLABLE) - 入職日，格式 yyyy-MM-dd，不填預設今天\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hr-system-api/v1/account/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hr-system-api",
+								"v1",
+								"account",
+								"create"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 18:59:13 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "93"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 201,\n    \"message\": \"Employee created successfully\",\n    \"data\": {\n        \"email\": \"ajak.d2@example.com\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "06-apply-leave",
+			"request": {
+				"method": "POST",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer...",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"start_date\": \"2025-06-01\",  // 必填 (NOT NULL) - 請假開始日，格式 yyyy-MM-dd\n  \"end_date\": \"2025-06-05\",    // 必填 (NOT NULL) - 請假結束日，格式 yyyy-MM-dd\n  \"leave_type\": \"sick\",        // 必填 (NOT NULL) - 請假類型，例如 \"sick\"、\"vacation\"、\"personal\"\n  \"reason\": \"Feeling unwell\"   // 選填 (NULLABLE) - 請假原因，可留空 \"\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hr-system-api/v1/employee/apply-leave",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hr-system-api",
+								"v1",
+								"employee",
+								"apply-leave"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 19:08:16 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 201,\n    \"message\": \"Leave application submitted successfully\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "07-list-all-leave-requests",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}/hr-system-api/v1/hr/leave-requests",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"hr-system-api",
+						"v1",
+						"hr",
+						"leave-requests"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer...",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/hr-system-api/v1/hr/leave-requests",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hr-system-api",
+								"v1",
+								"hr",
+								"leave-requests"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 19:13:53 GMT"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"id\": \"00ce249e-9d33-4831-8313-b2a2c1889b4f\",\n            \"account_id\": \"01f7d48f-4ad3-4797-abcd-8f64c70d1c58\",\n            \"leave_type\": \"personal\",\n            \"start_date\": \"2025-05-29T00:00:00+08:00\",\n            \"end_date\": \"2025-05-29T00:00:00+08:00\",\n            \"reason\": \"Personal appointment\",\n            \"status\": \"rejected\",\n            \"approver_id\": \"5cdb23f7-0839-45cf-8078-57f39ea3ccf6\",\n            \"requested_at\": \"2025-04-29T01:32:22.065+08:00\",\n            \"approved_at\": \"2025-04-29T01:02:22.063+08:00\",\n            \"updated_at\": \"2025-04-29T01:32:22.065+08:00\",\n            \"account\": {\n                \"id\": \"01f7d48f-4ad3-4797-abcd-8f64c70d1c58\",\n                \"first_name\": \"Danny\",\n                \"last_name\": \"Paul\",\n                \"email\": \"danny.paul@example.com\",\n                \"role\": 2,\n                \"created_at\": \"2025-04-29T01:32:22.058+08:00\",\n                \"updated_at\": \"2025-04-29T01:32:22.058+08:00\"\n            },\n            \"approver\": {\n                \"id\": \"5cdb23f7-0839-45cf-8078-57f39ea3ccf6\",\n                \"first_name\": \"HR\",\n                \"last_name\": \"Manager\",\n                \"email\": \"hr@example.com\",\n                \"role\": 1,\n                \"created_at\": \"2025-04-29T01:32:22.055+08:00\",\n                \"updated_at\": \"2025-04-29T02:46:08.037+08:00\"\n            }\n        },\n        {\n            \"id\": \"01976aed-7076-487d-adad-162dcca94326\",\n            \"account_id\": \"2a6b7b2c-21ea-466d-a46e-861df06707d6\",\n            \"leave_type\": \"annual\",\n            \"start_date\": \"2025-05-06T00:00:00+08:00\",\n            \"end_date\": \"2025-05-08T00:00:00+08:00\",\n            \"reason\": \"Vacation\",\n            \"status\": \"approved\",\n            \"approver_id\": \"5cdb23f7-0839-45cf-8078-57f39ea3ccf6\",\n            \"requested_at\": \"2025-04-29T01:32:22.063+08:00\",\n            \"approved_at\": \"2025-04-29T00:32:22.063+08:00\",\n            \"updated_at\": \"2025-04-29T01:32:22.063+08:00\",\n            \"account\": {\n                \"id\": \"2a6b7b2c-21ea-466d-a46e-861df06707d6\",\n                \"first_name\": \"John\",\n                \"last_name\": \"Doe\",\n                \"email\": \"john.doe@example.com\",\n                \"role\": 2,\n                \"created_at\": \"2025-04-29T01:32:22.057+08:00\",\n                \"updated_at\": \"2025-04-29T01:32:22.057+08:00\"\n            },\n            \"approver\": {\n                \"id\": \"5cdb23f7-0839-45cf-8078-57f39ea3ccf6\",\n                \"first_name\": \"HR\",\n                \"last_name\": \"Manager\",\n                \"email\": \"hr@example.com\",\n                \"role\": 1,\n                \"created_at\": \"2025-04-29T01:32:22.055+08:00\",\n                \"updated_at\": \"2025-04-29T02:46:08.037+08:00\"\n            }\n        },\n        {\n            \"id\": \"2f1a6343-88d0-44fc-adac-314dec94be75\",\n            \"account_id\": \"2a6b7b2c-21ea-466d-a46e-861df06707d6\",\n            \"leave_type\": \"sick\",\n            \"start_date\": \"2025-03-30T00:00:00+08:00\",\n            \"end_date\": \"2025-03-31T00:00:00+08:00\",\n            \"reason\": \"Flu recovery\",\n            \"status\": \"approved\",\n            \"approver_id\": \"5cdb23f7-0839-45cf-8078-57f39ea3ccf6\",\n            \"requested_at\": \"2025-04-29T01:32:22.066+08:00\",\n            \"approved_at\": \"2025-04-01T00:00:00+08:00\",\n            \"updated_at\": \"2025-04-29T01:32:22.066+08:00\",\n            \"account\": {\n                \"id\": \"2a6b7b2c-21ea-466d-a46e-861df06707d6\",\n                \"first_name\": \"John\",\n                \"last_name\": \"Doe\",\n                \"email\": \"john.doe@example.com\",\n                \"role\": 2,\n                \"created_at\": \"2025-04-29T01:32:22.057+08:00\",\n                \"updated_at\": \"2025-04-29T01:32:22.057+08:00\"\n            },\n            \"approver\": {\n                \"id\": \"5cdb23f7-0839-45cf-8078-57f39ea3ccf6\",\n                \"first_name\": \"HR\",\n                \"last_name\": \"Manager\",\n                \"email\": \"hr@example.com\",\n                \"role\": 1,\n                \"created_at\": \"2025-04-29T01:32:22.055+08:00\",\n                \"updated_at\": \"2025-04-29T02:46:08.037+08:00\"\n            }\n        },\n        {\n            \"id\": \"6f662a77-ff2e-4de2-8e4e-4e8b7078c969\",\n            \"account_id\": \"61f95d3b-fb5a-4ff7-8db3-a1a3125a81dd\",\n            \"leave_type\": \"vacation\",\n            \"start_date\": \"2025-06-30T00:00:00+08:00\",\n            \"end_date\": \"2025-07-09T00:00:00+08:00\",\n            \"reason\": \"Long holiday trip\",\n            \"status\": \"pending\",\n            \"requested_at\": \"2025-04-29T01:32:22.065+08:00\",\n            \"updated_at\": \"2025-04-29T01:32:22.065+08:00\",\n            \"account\": {\n                \"id\": \"61f95d3b-fb5a-4ff7-8db3-a1a3125a81dd\",\n                \"first_name\": \"Grace\",\n                \"last_name\": \"Hopper\",\n                \"email\": \"grace.hopper@example.com\",\n                \"role\": 2,\n                \"created_at\": \"2025-04-29T01:32:22.06+08:00\",\n                \"updated_at\": \"2025-04-29T01:32:22.06+08:00\"\n            }\n        },\n        {\n            \"id\": \"81a20c0a-f08d-40a2-8cab-653995f5ea09\",\n            \"account_id\": \"4fa2d42e-9de0-42e5-bc99-96f02be6c973\",\n            \"leave_type\": \"sick\",\n            \"start_date\": \"2025-04-30T00:00:00+08:00\",\n            \"end_date\": \"2025-04-30T00:00:00+08:00\",\n            \"reason\": \"Feeling unwell\",\n            \"status\": \"pending\",\n            \"requested_at\": \"2025-04-29T01:32:22.065+08:00\",\n            \"updated_at\": \"2025-04-29T01:32:22.065+08:00\",\n            \"account\": {\n                \"id\": \"4fa2d42e-9de0-42e5-bc99-96f02be6c973\",\n                \"first_name\": \"Alice\",\n                \"last_name\": \"Chiang\",\n                \"email\": \"alice.chiang@example.com\",\n                \"role\": 2,\n                \"created_at\": \"2025-04-29T01:32:22.058+08:00\",\n                \"updated_at\": \"2025-04-29T01:32:22.058+08:00\"\n            }\n        },\n        {\n            \"id\": \"ad81765a-24c5-4854-999a-c4406fc1aaf7\",\n            \"account_id\": \"9fe992be-ed55-473b-a117-5cbe907b4758\",\n            \"leave_type\": \"sick\",\n            \"start_date\": \"2025-06-01T00:00:00+08:00\",\n            \"end_date\": \"2025-06-05T00:00:00+08:00\",\n            \"reason\": \"Feeling unwell\",\n            \"status\": \"pending\",\n            \"requested_at\": \"2025-04-29T03:08:16.037+08:00\",\n            \"updated_at\": \"2025-04-29T03:08:16.037+08:00\",\n            \"account\": {\n                \"id\": \"9fe992be-ed55-473b-a117-5cbe907b4758\",\n                \"first_name\": \"Ajak\",\n                \"last_name\": \"Doe\",\n                \"email\": \"ajak.d2@example.com\",\n                \"role\": 2,\n                \"created_at\": \"2025-04-29T02:59:13.935+08:00\",\n                \"updated_at\": \"2025-04-29T02:59:13.935+08:00\"\n            }\n        },\n        {\n            \"id\": \"ecf91e84-26ee-45e5-9a10-eff30796acec\",\n            \"account_id\": \"63499dae-b786-4206-8ec6-1b0e72c84a0c\",\n            \"leave_type\": \"annual\",\n            \"start_date\": \"2025-05-13T00:00:00+08:00\",\n            \"end_date\": \"2025-05-14T00:00:00+08:00\",\n            \"reason\": \"Short break\",\n            \"status\": \"pending\",\n            \"requested_at\": \"2025-04-29T01:32:22.066+08:00\",\n            \"updated_at\": \"2025-04-29T01:32:22.066+08:00\",\n            \"account\": {\n                \"id\": \"63499dae-b786-4206-8ec6-1b0e72c84a0c\",\n                \"first_name\": \"Alan\",\n                \"last_name\": \"Turing\",\n                \"email\": \"alan.turing@example.com\",\n                \"role\": 2,\n                \"created_at\": \"2025-04-29T01:32:22.061+08:00\",\n                \"updated_at\": \"2025-04-29T01:32:22.061+08:00\"\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "08-get-leave-request-status",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer...",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/hr-system-api/v1/employee/leave-status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hr-system-api",
+								"v1",
+								"employee",
+								"leave-status"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 19:25:36 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "249"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"id\": \"ad81765a-24c5-4854-999a-c4406fc1aaf7\",\n            \"leave_type\": \"sick\",\n            \"start_date\": \"2025-06-01\",\n            \"end_date\": \"2025-06-05\",\n            \"reason\": \"Feeling unwell\",\n            \"status\": \"pending\",\n            \"requested_at\": \"2025-04-29T03:08:16.037+08:00\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "09-get-employee-profile",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer...",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/hr-system-api/v1/employee/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hr-system-api",
+								"v1",
+								"employee",
+								"profile"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 19:27:26 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "221"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"first_name\": \"Ajak\",\n        \"last_name\": \"Doe\",\n        \"email\": \"ajak.d2@example.com\",\n        \"role\": 2,\n        \"position_title\": \"Engineer\",\n        \"salary\": \"50000\",\n        \"hire_date\": \"2025-05-01T00:00:00+08:00\",\n        \"status\": \"active\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "10-approve-leave-request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer...",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/hr-system-api/v1/hr/leave-requests/:id/approve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hr-system-api",
+								"v1",
+								"hr",
+								"leave-requests",
+								":id",
+								"approve"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "ad81765a-24c5-4854-999a-c4406fc1aaf7"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 19:36:02 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "72"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"message\": \"Leave request approved successfully\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "11-reject-leave-request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer...",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/hr-system-api/v1/hr/leave-requests/:id/reject",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hr-system-api",
+								"v1",
+								"hr",
+								"leave-requests",
+								":id",
+								"reject"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "ecf91e84-26ee-45e5-9a10-eff30796acec"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 19:37:28 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "72"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"message\": \"Leave request rejected successfully\",\n    \"data\": null\n}"
+				}
+			]
+		}
+	]
+}
