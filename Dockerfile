@@ -1,7 +1,7 @@
 # ========================
 # Stage 1: Build & Test  <-- 更新階段名稱 (可選，但更清晰)
 # ========================
-FROM golang:1.22-alpine AS builder
+FROM golang:1.23-alpine AS builder
 
 # 設定環境變數 (通常測試不需要 release 模式，但這裡保留)
 ENV GIN_MODE=release

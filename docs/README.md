@@ -4,7 +4,7 @@
 
 ---
 
-## 📄 简介 (Project Description)
+## 📄 簡介 (Project Description)
 
 HR-System 是一個執行員工管理與請假流程的背後服務，最基本功能包括：
 - 員工資訊管理（職種、聯絡資訊、薪資等）
@@ -16,7 +16,7 @@ HR-System 是一個執行員工管理與請假流程的背後服務，最基本�
 
 ## ⚙️ Tech Stack
 
-- Golang 1.22+
+- Golang 1.23+
 - Gin Web Framework
 - MySQL 8.0
 - Redis 7
