@@ -1,7 +1,6 @@
 package environment
 
 // --- Configuration Variables ---
-// 這些變數將由 config.LoadConfig() 根據 .env 檔案和 OS 環境變數來填充。
 var (
 	Environment string // local, docker, production
 	GinMode     string // debug, release
@@ -10,7 +9,7 @@ var (
 	ServerPort string
 	Domain     string
 
-	// 資料庫 (保持為 string，在需要的地方轉換)
+	// 資料庫
 	DatabaseUser         string
 	DatabasePassword     string
 	DatabaseName         string
@@ -21,7 +20,7 @@ var (
 	DatabaseMaxOpenConns string
 	DatabaseMaxLifetime  string // second
 
-	// Redis (保持為 string)
+	// Redis
 	RedisAddr     string
 	RedisPassword string
 	RedisDB       string
@@ -34,3 +33,25 @@ var (
 
 // API 的基礎路徑
 const BasePath = "/hr-system-api"
+
+// --- Default fallback values ---
+const (
+	DefaultEnv        = "local"
+	DefaultGinMode    = "debug"
+	DefaultServerPort = "8080"
+	DefaultDomain     = "localhost"
+
+	DefaultDatabaseHost         = "127.0.0.1"
+	DefaultDatabasePort         = "3306"
+	DefaultDatabaseLogLevel     = "warn"
+	DefaultDatabaseMaxIdleConns = "10"
+	DefaultDatabaseMaxOpenConns = "100"
+	DefaultDatabaseMaxLifetime  = "3600"
+
+	DefaultRedisAddr = "127.0.0.1:6379"
+	DefaultRedisDB   = "0"
+
+	DefaultJwtSecret      = "change-this-in-production-env-file"
+	DefaultJwtExpireHours = "24"
+	DefaultPasswordValue  = ""
+)
